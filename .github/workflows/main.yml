@@ -1,1 +1,23 @@
+name: Docker build phase
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Docker build process
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      -
+        name: login to Docker hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USER}}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD}}
+      - name: build the dockerfile
+        run: docker build . --file ./Dockerfile --tag ${{ secretes.DOCKER_HUB_USER}}/new-vission:latest
+      - name: docker push
+        run: docker push ${{ secrets.DOCKER_HUB_USER}}/new-vission:latest
