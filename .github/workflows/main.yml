@@ -20,4 +20,4 @@ jobs:
       - name: build the dockerfile
         run: docker build . --file ./Dockerfile --tag ${{ secrets.DOCKER_HUB_USER}}/new1-vission:latest
       - name: docker push
-        run: docker push ${{ secrets.DOCKER_HUB_USER}}/new-vission:latest
+        run: docker push ${{ secrets.DOCKER_HUB_USER}}/new1-vission:latest
