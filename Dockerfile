@@ -1,3 +1,3 @@
 FROM nginx
 
-ADD ./app /app
+ADD ./app /usr/share/nginx/html
